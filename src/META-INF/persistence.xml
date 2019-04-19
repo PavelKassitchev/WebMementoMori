@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="memento">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>user.MementoEntity</class>
+        <properties>
+            <property name="eclipselink.jdbc.url" value="jdbc:h2:D://H2DB2"/>
+            <property name="eclipselink.jdbc.driver" value="org.h2.Driver"/>
+            <property name="eclipselink.jdbc.user" value="pavka"/>
+            <property name="eclipselink.jdbc.password" value="Lshakh45"/>
+        </properties>
+    </persistence-unit>
+</persistence>

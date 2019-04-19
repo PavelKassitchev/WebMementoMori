@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:t="http://xmlns.jcp.org/jsf/passthrough">
+<f:view>
+    <h:outputLabel value="Hello, INTRO"/>
+    <br/>
+    <h:outputLabel value="login is #{main.mementoEntity.login},
+    password is #{main.mementoEntity.password},
+    userdata is #{main.mementoEntity.userdata}"/>
+    <br/> <br/>
+    <h:form>
+        <h:panelGrid columns="3">
+            <h:outputLabel for="Name" value="Please introduce yourself: "/>
+            <h:inputText id="Name" label="Name" value="#{main.mementoEntity.name}"
+                         required="true" t:placeholder="Your Name"/>
+            <h:message for="Name"/>
+            <h:outputLabel for="Date" value="Your birthdate in DD/MM/YYYY format: "/>
+            <h:inputText id="Date" label="Date" value="#{main.mementoEntity.birthDate}"
+                         required="true" t:placeholder="DD/MM/YYYY">
+                <f:validator validatorId="dateValidator"/>
+            </h:inputText>
+            <h:message for="Date"/>
+            <h:outputLabel for="Gender" value="Your Gender: "/>
+            <h:selectOneRadio id="Gender" label="Gender" value="#{main.mementoEntity.gender}"
+                              required="true">
+                <f:selectItem itemLabel="Male" itemValue="MALE"/>
+                <f:selectItem itemLabel="Female" itemValue="FEMALE"/>
+            </h:selectOneRadio>
+            <h:message for="Gender"/>
+            <br/>
+            <h:commandButton value="Next" action="#{main.introduce}"/>
+        </h:panelGrid>
+    </h:form>
+</f:view>
+</html>

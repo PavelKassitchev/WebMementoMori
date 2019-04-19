@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <f:view>
+      <h:head>
+         <title> Sign Up Page </title>
+      </h:head>
+      <h:body>
+         <h3> Sign Up If You Are A New User </h3>
+         <br/>
+         <h:form>
+            <h:panelGrid column="3">
+         <h:outputLabel for="log" value="Login: "/>
+         <h:inputText id="log" value="#{main.mementoEntity.login}" required="true"
+                      label="log">
+             <f:validator validatorId="loginValidator"/>
+         </h:inputText>
+            <h:message for="log"/>
+         
+         <h:outputLabel for="psw" value="Password: "/>
+         <h:inputSecret id="psw" value="#{main.mementoEntity.password}"
+                        required="true" label="psw"/>
+               <h:message for="psw"/>
+
+            <h:outputLabel for="confirm" value="Confirm: "/>
+            <h:inputSecret id="confirm"  required="true"
+                           label="confirm">
+               <f:validator validatorId="pswValidator"/>
+            </h:inputSecret>
+               <h:message for="confirm"/>
+            </h:panelGrid>
+            <br/>
+            <h:commandButton value="Sign Up" action="#{main.signup}"/>
+
+
+         </h:form>
+         <br/>
+         <br/>
+
+         <h3> Sign In If You Are Already Registered </h3>
+         <br/>
+         <h:form>
+            <h:panelGrid columns="3">
+
+            <h:outputLabel for="login" value="Login: "/>
+            <h:inputText id="login" label="Login" value="#{main.mementoEntity.login}" required="true"/>
+            <h:message for="login"/>
+
+            <h:outputLabel for="password" value="Password: "/>
+            <h:inputSecret id="password" label="Password" value="#{main.mementoEntity.password}"
+                           required="true">
+               <f:validator validatorId="signinValidator"/>
+            </h:inputSecret>
+            <h:message for="password"/>
+
+            </h:panelGrid>
+            <br/><br/>
+            <h:commandButton value="Sign In" action="#{main.signin}"/>
+         </h:form>
+
+
+      </h:body>
+   </f:view>
+</html>
