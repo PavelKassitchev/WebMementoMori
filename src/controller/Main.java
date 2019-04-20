@@ -124,6 +124,7 @@ public class Main implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         em.close();
         emf.close();
+        mementoEntity = null;
         return "index?face-redirect=true";
     }
 }
